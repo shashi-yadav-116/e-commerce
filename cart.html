@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    button{
+     background-color: rgb(205, 208, 192);
+      color: rgb(18, 17, 17);
+   
+    }
+    body{
+    background-image: url("./cart\ \(2\).jpg");
+    background-repeat: repeat;
+    background-size: contain
+    ;
+   }
+    .sky{
+      border: 4px solid rgb(246, 174, 67);
+    }
+  </style>
+</head>
+
+<body >
+  <h1>
+    <center>CART </center>
+  </h1>
+  <button>cart</button>
+<table></table>
+  <div class="sky"></div>
+  <script>
+    let divv=document.getElementsByTagName("div")
+//let tble=document.getElementsByName("table")
+    let cartt = localStorage.getItem("cart");
+    console.log(cartt);
+    cartt == null ? cartt = [] : cartt = JSON.parse(cartt);
+    let btn = document.getElementsByTagName("button");
+    btn[0].innerText = cartt.length
+    cartt.map((val, ind) => {
+      let imgg=document.createElement("img");
+      imgg.setAttribute("src",val.image);
+      imgg.style.width="200px"
+      let dd=document.createElement("h1");
+      dd.innerText=val.title;
+      divv[0].appendChild(dd)
+      divv[0].appendChild(imgg)
+
+      let pre=document.createElement("h4")
+pre.innerText=val.price;
+divv[0].appendChild(pre)
+      let buybtn = document.createElement("button")
+      buybtn.innerText = "buy now";
+      divv[0].appendChild(buybtn);
+      //document.body.appendChild(buybtn)
+      buybtn.addEventListener("click", () => (
+        window.location.assign("./buy.html")
+      ))
+    })
+
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+  
+   body{
+    background-image: url("./reggger.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+   }
+   #s{
+    border: 2px solid;
+    width: 400px;
+    height: 400px;
+    margin-top:250px; 
+    margin-left: 600px;
+   } 
+   form{
+    font-size: x-large;
+   
+   }
+</style>
+</head>
+
+<body>
+<div id="s">
+            <h1>
+            <center>REGISTRATION &nbsp; PAGE</center>
+        </h1>
+        <center>
+            <form action="">
+                User Name<br> <input type="text" id="hell" required><br>
+                <br>
+                Password &nbsp; <br><input type="password"  id="hello" required><br>
+                <br>
+                Confirm Password<br> <input type="password" id="hello1" required><br>
+                <br>
+                <center><input type="submit" id="submit"></center>
+
+            </form>
+        </center>
+    </div>
+
+ 
+    <script>
+        let formss = document.forms;
+        console.log(formss);
+        console.log(formss[0]);
+
+        formss[0].addEventListener("submit", (e) => {
+            e.preventDefault()
+
+            let username = e.target[0].value;
+            let password = e.target[1].value;
+            let cpassword = e.target[2].value;
+
+            let valid
+
+
+            if (username[0] == username[0].toUpperCase() && username.length <= 15) {
+                Valid = true
+            }
+            else {
+              //  alert("Invalid Details")
+                valid = false
+            }
+            if (cpassword == password) {
+                valid = true
+            }
+            else {
+                valid = false
+               // alert("Invalid Details")
+
+            }
+            if (password.length == 10) {
+                valid = true
+            }
+            else {
+                valid = false
+               // alert("Invalid Details")
+
+            }
+            if(valid){
+                let users = {
+                username: username,
+                password: password
+
+            }
+
+
+            let deep = JSON.parse(localStorage.getItem("sky")) || []
+            deep.push(users)
+            localStorage.setItem("sky", JSON.stringify(deep))
+
+            window.location.assign("./login.html")
+            }
+else{
+    alert("Invalid Details")
+
+}
+
+            e.target[0].value = ""
+            e.target[1].value = ""
+            e.target[2].value = ""
+        })
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      #sky{
+        background-color: gold;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        font-size: large;
+        font-style: italic;
+      }
+      #s{
+    border: 2px solid;
+    width: 330px;
+    height: 300px;
+    margin-top:250px; 
+    margin-left: 400px;
+   } 
+   form{
+    font-size: x-large;
+   }
+   body{
+    background-image: url("./log.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+   }
+    </style>
+</head>
+<body >
+ <div id="s">
+  <center>
+   <h1>Login page</h1> 
+
+  <form action="">
+    User Name: <br><input type="text" id="hell"><br>
+  <br>
+  Password  &nbsp;:<br> <input type="password"  id="hello" ><br>
+  <br>
+  <input type="submit" value="Login" id="sky">
+  </form></center></div>
+
+  <!-- Confirm Password: <input type="text" id="hello1"><br> -->
+
+ 
+<script>
+  //   let mbtn=document.getElementsByTagName("button");
+  //  mbtn[0].addEventListener("click",()=>{
+  //   window.location.assign("./project.html")
+  let formgetting=document.forms
+  let username=document.getElementById("hell")
+  let password=document.getElementById("hello")
+
+  let valuesgetting=JSON.parse(localStorage.getItem("sky"))
+  console.log(valuesgetting);
+  formgetting[0].addEventListener("submit",(e)=>{
+    e.preventDefault();
+    let user=username.value
+    let pass=password.value
+
+    let uservalidate=valuesgetting.find((val)=>{
+      return val["username"]==user
+    })
+    let passvalidate=valuesgetting.find((val)=>{
+      return val["password"]==pass
+    })
+    if (uservalidate && passvalidate) {
+      window.location.assign("./project.html")
+    }
+    else{
+      alert("Details missmatch")
+    }
+
+  })
+
+  
+   
+
+
+
+
+  //  })
+    
+</script>
+</body>
+</html>
