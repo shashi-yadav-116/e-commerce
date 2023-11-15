@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>IMAGES</h1>
+    <button id="btn">back</button>
+    <script>
+        let btn=document.getElementById("btn")
+        btn.addEventListener("click",()=>{
+            window.history.back()
+        })
+        let vall=JSON.parse(localStorage.getItem("see more"))
+        console.log(vall);
+        let imgc=document.createElement("img")
+        imgc.setAttribute("src",vall.image)
+        document.body.appendChild(imgc)
+        imgc.style.width="200px"
+    </script>
+</body>
+</html>
