@@ -33,7 +33,7 @@
         </h1>
         <center>
             <form action="">
-                User Name<br> <input type="text" placeholder="User name" id="hell" required><br>
+                User Name<br> <input type="text"  id="hell" required><br>
                 <br>
                 Password &nbsp; <br><input type="password" placeholder="**********"  id="hello" required><br>
                 <br>
@@ -58,32 +58,25 @@
             let password = e.target[1].value;
             let cpassword = e.target[2].value;
 
-            let valid
+          
+    let valid = true; // Initialize as true
 
+if (!(username[0] == username[0].toUpperCase() && username.length <= 15)) {
+    valid = false;
+    // alert("Invalid Details")
+}
 
-            if (username[0] == username[0].toUpperCase() && username.length <= 15) {
-                Valid = true
-            }
-            else {
-              //  alert("Invalid Details")
-                valid = false
-            }
-            if (cpassword == password) {
-                valid = true
-            }
-            else {
-                valid = false
-               // alert("Invalid Details")
+if (cpassword !== password) {
+    valid = false;
+    // alert("Invalid Details")
+}
 
-            }
-            if (password.length == 10) {
-                valid = true
-            }
-            else {
-                valid = false
-               // alert("Invalid Details")
+if (password.length !== 10) {
+    valid = false;
+    // alert("Invalid Details")
+}
 
-            }
+          
             if(valid){
                 let users = {
                 username: username,
