@@ -36,12 +36,12 @@
     <p><B style="color: blue;">Sky</B><SUb style="color: goldenrod;">every thing for you...</SUb>
     </p>
  <center>
-    <button>All</button>
-    <button>mens</button>
-    <button>jewelery</button>
-    <button>electronics</button>
-    <button>cart</button>
-    <button>clear</button></center>
+    <!-- <button>All</button> -->
+    <button>Mens</button>
+    <button>Jewelery</button>
+    <button>Electronics</button>
+    <button>Cart</button>
+    <button>Clear Cart</button></center>
     <div></div>
     <table>
     </table>
@@ -292,12 +292,12 @@
 
         let btn = document.getElementsByTagName("button");
         let tdbtn = document.createElement("td")
+//         btn[0].addEventListener("click", () => {
+
+ display(sky);
+
+// });
         btn[0].addEventListener("click", () => {
-
-display(sky);
-
-});
-        btn[1].addEventListener("click", () => {
             let mens = sky.filter((val, ind, arr) => {
                 return val["category"] == "men's clothing";
             })
@@ -305,7 +305,7 @@ display(sky);
             display(mens);
         });
     
-        btn[2].addEventListener("click", () => {
+        btn[1].addEventListener("click", () => {
             let jewelery = sky.filter((val, ind, arr) => {
                 return val["category"] == "jewelery";
             })
@@ -313,7 +313,7 @@ display(sky);
             display(jewelery);
 
         });
-        btn[3].addEventListener("click", () => {
+        btn[2].addEventListener("click", () => {
             let electronics = sky.filter((val, ind, arr) => {
                 return val["category"] == "electronics"
             });
@@ -322,10 +322,10 @@ display(sky);
             let btn = document.getElementsByTagName("button")
 
         })
-        btn[5].addEventListener("click", () => {
+        btn[4].addEventListener("click", () => {
             localStorage.clear()
         })
-        btn[4].addEventListener("click", () => {
+        btn[3].addEventListener("click", () => {
             window.location.assign("./cart.html")
         })
         function display(sky) {
